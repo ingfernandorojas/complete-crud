@@ -33,6 +33,10 @@ FirebaseConfig: {
     messagingSenderId: "**********************"
   }
   ```
+  ## Instalar paquetes
+  
+  Dentro de complete-crud/ ejecutar```npm install package.json```
+  
   ## Mostrar en el navegador
   
   ``` ng serve -o ```

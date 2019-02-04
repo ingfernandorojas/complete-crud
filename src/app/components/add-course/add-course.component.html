@@ -1,0 +1,143 @@
+<div class="card">
+
+  <div class="card-content">
+    
+    <span class="card-title">
+      New course
+    </span>
+
+    <form class="col s6" (ngSubmit)="onSubmit(addCourse)" 
+    name="addCourse" #addCourse="ngForm" >
+
+      <div class="row">
+
+        <div class="input-field col s6">
+
+          <label for="name">Course</label>
+          
+          <input type="text" name="name" id="name" 
+          placeholder="Course name" [(ngModel)]="course.name" 
+          #name="ngModel" minlength="8" maxlength="90" required>
+
+          <div *ngIf="name.touched && !name.valid">
+            <div *ngIf="name.errors.required" class="red-text text-lighten-1">
+              Name is required
+            </div>
+            <div *ngIf="name.errors.minlength" class="red-text text-lighten-1">
+              Name must be at least {{ name.errors.minlength.requiredLength }} characters
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <label for="description">Description</label>
+
+          <input type="text" name="description" id="description" 
+          placeholder="Course description" [(ngModel)]="course.description" 
+          #description="ngModel" minlength="10" maxlength="250" required> 
+
+          <div *ngIf="description.touched && !description.valid">
+            <div *ngIf="description.errors.required" class="red-text text-lighten-1">
+              Description is required
+            </div>
+            <div *ngIf="description.errors.minlength" class="red-text text-lighten-1">
+              Description must be at least {{ description.errors.minlength.requiredLength }} characters
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <label for="teacher">Teacher</label>
+
+          <input type="text" name="teacher" id="teacher" 
+          placeholder="Course teacher" [(ngModel)]="course.teacher" 
+          #teacher="ngModel" minlength="8" maxlength="45" required>
+
+          <div *ngIf="teacher.touched && !teacher.valid">
+            <div *ngIf="teacher.errors.required" class="red-text text-lighten-1">
+              Teacher is required
+            </div>
+            <div *ngIf="teacher.errors.minlength" class="red-text text-lighten-1">
+              Teacher must be at least {{ teacher.errors.minlength.requiredLength }} characters
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <label for="price">Price</label>
+
+          <input type="text" name="price" id="price" 
+          placeholder="Course price" [(ngModel)]="course.price" 
+          #price="ngModel" minlength="2" maxlength="7" required>
+
+          <div *ngIf="price.touched && !teacher.valid">
+            <div *ngIf="price.errors.required" class="red-text text-lighten-1">
+              Price is required
+            </div>
+            <div *ngIf="price.errors.minlength" class="red-text text-lighten-1">
+              Price must be at least {{ price.errors.minlength.requiredLength }} characters
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <label for="Language">Language</label>
+
+          <input type="text" name="language" id="language" 
+          placeholder="Course Language" [(ngModel)]="course.language" 
+          #language="ngModel" minlength="7" maxlength="8" pattern="English|Spanish" required>
+
+          <div *ngIf="language.touched && !language.valid">
+            <div *ngIf="language.errors.required" class="red-text text-lighten-1">
+              Language is required
+            </div>
+            <div *ngIf="language.errors.minlength" class="red-text text-lighten-1">
+              Language must be at least {{ language.errors.minlength.requiredLength }} characters
+            </div>
+            <div *ngIf="language.errors.pattern" class="red-text text-lighten-1">
+              Language must be English or Spanish
+            </div>
+          </div>
+
+        </div>
+
+        <div class="input-field col s6">
+
+          <label for="technology">Technology</label>
+
+          <input type="text" name="technology" id="technology" 
+          placeholder="Course technology" [(ngModel)]="course.technology"
+          #technology="ngModel" minlength="2" maxlength="15" required>
+
+          <div *ngIf="technology.touched && !technology.valid">
+            <div *ngIf="technology.errors.required" class="red-text text-lighten-1">
+              Technology is required
+            </div>
+            <div *ngIf="technology.errors.minlength" class="red-text text-lighten-1">
+              Technology must be at least {{ language.errors.minlength.requiredLength }} characters
+            </div>
+          </div>
+        
+        </div>
+
+        <div class="col s12">
+          <button type="submit" class="waves-effect waves-light btn orange right">
+            <i class="material-icons left">add_circle</i>Save
+          </button>
+        </div>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

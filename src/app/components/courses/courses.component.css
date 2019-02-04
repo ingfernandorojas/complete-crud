@@ -1,0 +1,16 @@
+.my_tag {
+    font-weight: 300;
+    font-size: 0.8rem;
+    border-radius: 3px;
+    margin-left: 0;
+    margin-right: 5px;
+    text-align: center;
+    line-height: 22px;
+    color: #000000;
+    box-sizing: border-box;
+    padding: 0.3rem;
+}
+
+.secondary-content {
+    color: #000000;
+}

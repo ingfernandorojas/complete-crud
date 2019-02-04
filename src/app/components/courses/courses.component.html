@@ -1,0 +1,130 @@
+<div *ngIf="courseList?.length > 0 else noCourses">
+
+  <ul *ngFor="let course of courseList" class="collection">
+    <li class="collection-item">
+
+      <!-- Icons -->
+      <a href="" class="secondary-content">
+        <i class="material-icons" 
+        *ngIf="editState == false"
+        (click)="editCourse(course)"
+        >mode_edit</i>
+
+        <i class="material-icons" 
+        *ngIf="editState && courseToEdit == course"
+        (click)="clearState()"
+        >close</i>
+      </a>
+      <!-- End of icons -->
+
+      <!-- Title -->
+      <h4>{{ course.name }}</h4>
+      <br>
+      <!-- End of title -->
+
+      <!-- Description -->
+      <blockquote>{{ course.description }}</blockquote>
+      <br>
+      <!-- End of description -->
+
+      <!-- Tags -->
+      <span class="my_tag amber">
+        <span class="text-bold">Price: </span>{{ course.price }}
+      </span>
+
+      <span class="my_tag amber">
+        <span class="text-bold">Language: </span>{{ course.language }}
+      </span>
+
+      <span class="my_tag amber">
+        <span class="text-bold">Teacher: </span>{{ course.teacher }}
+      </span>
+
+      <span class="my_tag amber">
+        <span class="text-bold">Technology: </span>{{ course.technology }}
+      </span>
+      <!-- End of tags -->
+
+      <!-- Form to edit the course -->
+      <div  
+      *ngIf="editState && courseToEdit == course"
+      class="container-updateCourse">
+
+        <form class="col s6" (ngSubmit)="updateCourse(course)">
+
+        <div class="row">
+
+          <div class="input-field col s6">
+
+            <input type="text" name="name" id="name" 
+            placeholder="Course name" [(ngModel)]="course.name" 
+            #name="ngModel">
+
+          </div>
+
+          <div class="input-field col s6">
+
+            <input type="text" name="description" id="description" 
+            placeholder="Course description" [(ngModel)]="course.description" 
+            #description="ngModel">
+
+          </div>
+
+          <div class="input-field col s6">
+
+            <input type="text" name="teacher" id="teacher" 
+            placeholder="Course teacher" [(ngModel)]="course.teacher" 
+            #teacher="ngModel">
+
+          </div>
+
+          <div class="input-field col s6">
+
+            <input type="text" name="price" id="price" 
+            placeholder="Course price" [(ngModel)]="course.price" 
+            #price="ngModel">
+
+          </div>
+
+          <div class="input-field col s6">
+
+            <input type="text" name="Language" id="Language" 
+            placeholder="Course language" [(ngModel)]="course.language" 
+            #language="ngModel">
+
+          </div>
+
+          <div class="input-field col s6">
+
+            <input type="text" name="technology" id="technology" 
+            placeholder="Course technology" [(ngModel)]="course.technology"
+            #technology="ngModel">
+          
+          </div>
+
+          <div class="col s12">
+            <button (click)="deleteCourse(course)" class="waves-effect waves-light btn red right">
+              <i class="material-icons left">delete_forever</i>Delete
+            </button>
+             <button type="submit" class="waves-effect waves-light btn orange left">
+              <i class="material-icons left">update</i>Update
+            </button>
+          </div>
+
+        </div>
+
+        </form>
+      </div>
+      <!-- End of form -->
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- In case there are no courses -->
+
+<ng-template #noCourses>
+<hr>
+<h4>There are no courses</h4>
+</ng-template>
